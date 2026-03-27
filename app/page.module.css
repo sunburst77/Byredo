@@ -4,12 +4,10 @@
   background-color: white;
 }
 
-/* sticky: 스크롤 시 상단에 고정, contentWrapper가 위로 덮으며 스크롤 */
+/* GSAP pin이 hero를 고정 처리 — wrapper는 공간만 확보 */
 .heroWrapper {
   width: 100%;
-  height: var(--hero-height);
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 0;
 }
 

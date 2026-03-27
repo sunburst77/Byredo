@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Footer from '@/components/Footer'
-import HeroCarousel from '@/components/HeroCarousel'
+import HeroPinWrapper from '@/components/HeroPinWrapper'
 import ProductSection from '@/components/ProductSection'
 import CollectionsMarquee from '@/components/sections/CollectionsMarquee'
 import { EditorialImageReveal, JournalSectionReveal } from '@/components/MainPageReveal'
@@ -9,9 +9,9 @@ import styles from './page.module.css'
 export default function MainPage() {
   return (
     <div className={styles.container} data-page-container>
-      {/* Hero Section — sticky로 고정, 아래 섹션이 위로 스크롤되며 덮음 */}
+      {/* Hero Section — GSAP pin으로 고정, 아래 섹션이 위로 스크롤되며 덮음 */}
       <div className={styles.heroWrapper}>
-        <HeroCarousel />
+        <HeroPinWrapper />
       </div>
 
       {/* Hero 아래 모든 콘텐츠 — z-index로 hero 위를 덮으며 스크롤 */}
