@@ -1,0 +1,268 @@
+.loremSection {
+  width: 100%;
+  padding: 280px 10px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 200;
+  background-color: #FFF;
+}
+
+.loremHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  width: 100%;
+  position: relative;
+}
+
+.loremLinkWrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.loremLink {
+  text-decoration: none;
+  color: black;
+  transition: opacity 0.3s ease;
+  display: inline-block;
+  border-bottom: 1px solid black;
+  padding-bottom: 0;
+}
+
+.loremLink:hover {
+  opacity: 0.7;
+}
+
+.loremLink:hover .loremLinkArrow {
+  transform: translateX(4px);
+}
+
+.loremLinkText {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: black;
+  line-height: 16.5px;
+  display: inline;
+  text-decoration: none;
+  margin-right: 8px;
+}
+
+.loremLinkSeparator {
+  display: inline;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: black;
+}
+
+.loremLinkArrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  font-size: 11px;
+  color: black;
+  will-change: transform;
+}
+
+.loremTitleLeft {
+  font-size: 192.8px;
+  font-weight: 500;
+  line-height: 160px;
+  letter-spacing: -10px;
+  text-transform: uppercase;
+  color: black;
+}
+
+.loremTitleRight {
+  font-size: 187.1px;
+  font-weight: 500;
+  line-height: 160px;
+  letter-spacing: -10px;
+  text-transform: uppercase;
+  color: black;
+  text-align: right;
+}
+
+.productGrid {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  padding: 0 10px;
+}
+
+/* reveal 애니메이션 대상 래퍼 — overflow:visible 유지 */
+.productItemWrap {
+  flex: 1;
+  height: 584.375px;
+}
+
+/* 실제 카드 — hover scale 클리핑용 overflow:hidden */
+.productItem {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.productItemBg {
+  position: absolute;
+  inset: 0;
+  background-color: #ccc;
+  z-index: 0;
+}
+
+.productItemImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.productItem:hover .productItemImage {
+  transform: scale(1.05);
+}
+
+.productInfo {
+  position: absolute;
+  left: 20px;
+  bottom: 30px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.productItem:hover .productInfo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.productName {
+  font-size: 18px;
+  font-weight: 400;
+  color: #000;
+  margin: 0 0 8px 0;
+}
+
+.productPrice {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .productGrid {
+    flex-wrap: wrap;
+  }
+
+  .productItemWrap {
+    flex: 1 1 calc(50% - 5px);
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .loremSection {
+    padding: 200px 8px 60px;
+    gap: 8px;
+  }
+
+  .loremHeader {
+    padding-bottom: 15px;
+  }
+
+  .loremTitleLeft,
+  .loremTitleRight {
+    font-size: 60px;
+    line-height: 50px;
+    letter-spacing: -3px;
+  }
+
+  .loremLinkText {
+    font-size: 9px;
+    line-height: 13px;
+  }
+
+  .productGrid {
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 8px;
+  }
+
+  .productItemWrap {
+    width: 100%;
+    height: 350px;
+  }
+
+  .productInfo {
+    left: 15px;
+    bottom: 20px;
+  }
+
+  .productName {
+    font-size: 16px;
+  }
+
+  .productPrice {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loremSection {
+    padding: 150px 6px 50px;
+    gap: 6px;
+  }
+
+  .loremHeader {
+    padding-bottom: 12px;
+  }
+
+  .loremTitleLeft,
+  .loremTitleRight {
+    font-size: 45px;
+    line-height: 40px;
+    letter-spacing: -2px;
+  }
+
+  .loremLinkText {
+    font-size: 8px;
+    line-height: 11px;
+  }
+
+  .productGrid {
+    gap: 6px;
+    padding: 0 6px;
+  }
+
+  .productItemWrap {
+    height: 300px;
+  }
+
+  .productInfo {
+    left: 12px;
+    bottom: 15px;
+  }
+
+  .productName {
+    font-size: 14px;
+  }
+
+  .productPrice {
+    font-size: 12px;
+  }
+}

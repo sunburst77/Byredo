@@ -1,0 +1,375 @@
+﻿.page {
+  display: grid;
+  gap: 16px;
+}
+
+.hero,
+.metricCard,
+.tableCard,
+.modalCard {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(135deg, #fbfaf7 0%, #f0ebe2 100%);
+  padding: 20px 22px;
+}
+
+.eyebrow,
+.metricLabel,
+.fieldLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.title,
+.sectionTitle {
+  margin-top: 6px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: #020617;
+}
+
+.sectionTitle {
+  font-size: 22px;
+}
+
+.description,
+.detailMeta,
+.secondaryCell,
+.successText,
+.errorText {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+.description {
+  margin-top: 8px;
+  max-width: 760px;
+  font-size: 13px;
+}
+
+.heroMeta,
+.detailMeta,
+.actionGroup,
+.modalHeader,
+.formFooter,
+.modalActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.heroMeta,
+.modalHeader,
+.formFooter,
+.modalActions {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.categorySelectWrap {
+  display: grid;
+  gap: 8px;
+}
+
+.metaChip,
+.secondaryButton,
+.dangerButton,
+.primaryButton {
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.metaChip,
+.secondaryButton {
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: #ffffff;
+  color: #475569;
+}
+
+.metaChip {
+  padding: 8px 12px;
+}
+
+.metricGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.metricCard,
+.tableCard,
+.modalCard {
+  background: #ffffff;
+  padding: 18px;
+}
+
+.metricValue {
+  margin-top: 10px;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  color: #020617;
+}
+
+.metricMeta {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.tableCard,
+.modalCard {
+  display: grid;
+  gap: 16px;
+}
+
+.formGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.input,
+.select,
+.fileInput {
+  width: 100%;
+  min-height: 52px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  background: #ffffff;
+  padding: 13px 16px;
+  font-size: 14px;
+  color: #0f172a;
+  outline: none;
+}
+
+.input:focus,
+.select:focus,
+.fileInput:focus {
+  border-color: rgba(15, 23, 42, 0.3);
+}
+
+.fileInput {
+  padding: 12px 14px;
+}
+
+.thumbnailPreviewWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 112px;
+  height: 112px;
+  overflow: hidden;
+  border: 1px dashed rgba(15, 23, 42, 0.15);
+  border-radius: 20px;
+  background: #fbfaf7;
+}
+
+.thumbnailPreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnailPlaceholder,
+.tableThumbPlaceholder {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.primaryButton,
+.dangerButton {
+  border: 1px solid #020617;
+  background: #020617;
+  color: #ffffff;
+  padding: 12px 18px;
+}
+
+.dangerButton {
+  border-color: #7f1d1d;
+  background: #7f1d1d;
+}
+
+.secondaryButton {
+  padding: 10px 14px;
+}
+
+.primaryButton:disabled,
+.dangerButton:disabled,
+.secondaryButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.tableWrap {
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  background: #ffffff;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: minmax(260px, 1.35fr) 0.82fr 0.72fr 0.52fr 0.8fr 0.78fr 0.82fr;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.tableHead {
+  background: #f5f1e9;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.tableWrap > div + div {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.productCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tableThumb,
+.tableThumbPlaceholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: #f5f1e9;
+}
+
+.tableThumb {
+  object-fit: cover;
+}
+
+.tableThumbPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primaryCell {
+  font-weight: 700;
+  color: #020617;
+}
+
+.empty {
+  padding: 28px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.successText {
+  color: #166534;
+}
+
+.errorText {
+  color: #991b1b;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.48);
+}
+
+.modalCard {
+  width: min(920px, 100%);
+}
+
+.smallModalCard {
+  width: min(520px, 100%);
+  display: grid;
+  gap: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  background: #ffffff;
+  padding: 18px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+@media (max-width: 1400px) {
+  .metricGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1200px) {
+  .formGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tableWrap {
+    overflow-x: auto;
+  }
+
+  .tableRow {
+    min-width: 1060px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .modalHeader,
+  .formFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .metricGrid,
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .metricCard,
+  .tableCard,
+  .modalCard {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .metricValue {
+    font-size: 32px;
+  }
+}

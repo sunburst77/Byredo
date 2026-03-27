@@ -1,0 +1,8 @@
+﻿import Link from 'next/link'
+import { redirect } from 'next/navigation'
+
+export default function AdminIndexPage() {
+  redirect('/admin/dashboard')
+
+  return <Link href="/admin/dashboard">dashboard</Link>
+}

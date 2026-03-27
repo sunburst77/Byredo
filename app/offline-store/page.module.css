@@ -1,0 +1,251 @@
+/* Lenis 비활성화 — 네이티브 스크롤로 pin + 가로 슬라이드 동작 */
+.scrollContainer {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* GSAP pin 대상 — 100vh만 유지, 스크롤 구간은 pinSpacing이 자동 추가 */
+.pinSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: visible;
+  background-color: #fff;
+}
+
+.stickyContainer {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* 트랙 래퍼 — footerInfo(60px) 제외 영역에서 수직 중앙 정렬 */
+.trackWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* 카드 3개: (100vw - 패딩 10×2 - 갭 40×2) / 3 = (100vw - 100px) / 3 */
+.track {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 0 10px;
+  will-change: transform;
+}
+
+.storeCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+  width: calc((100vw - 100px) / 3);
+}
+
+.thumbnailButton {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.thumbnailButton:focus-visible .thumbnail {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.thumbnail {
+  width: calc((100vw - 100px) / 3);
+  height: calc((100vw - 100px) / 3);
+  overflow: hidden;
+  position: relative;
+  background-color: #f0f0f0;
+}
+
+.thumbnailImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.thumbnailButton:hover .thumbnailImg {
+  transform: scale(1.07);
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardIndex {
+  font-size: 12px;
+  font-weight: 400;
+  color: #999;
+  letter-spacing: 0.08em;
+  margin: 0;
+  line-height: 1;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border: 1px solid #000;
+  font-size: 11px;
+  font-weight: 400;
+  color: #000;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+  background-color: transparent;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tag:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.footerInfo {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.scrollText {
+  font-size: 13px;
+  font-weight: 400;
+  color: #000;
+  margin: 0;
+  letter-spacing: 0.12em;
+}
+
+.storeNumber {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 1024px) {
+  .track {
+    gap: 28px;
+    padding: 0 10px;
+  }
+
+  .storeCard {
+    width: calc((100vw - 76px) / 3);
+  }
+
+  .thumbnail {
+    width: calc((100vw - 76px) / 3);
+    height: calc((100vw - 76px) / 3);
+  }
+
+  .cardTitle {
+    font-size: 15px;
+  }
+
+  .footerInfo {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .track {
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .storeCard {
+    width: calc((100vw - 40px) / 2);
+  }
+
+  .thumbnail {
+    width: calc((100vw - 40px) / 2);
+    height: calc((100vw - 40px) / 2);
+  }
+
+  .cardTitle {
+    font-size: 13px;
+  }
+
+  .footerInfo {
+    padding: 0 12px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .track {
+    gap: 16px;
+    padding: 0 10px;
+  }
+
+  .storeCard {
+    width: calc(100vw - 36px);
+  }
+
+  .thumbnail {
+    width: calc(100vw - 36px);
+    height: calc(100vw - 36px);
+  }
+
+  .cardTitle {
+    font-size: 12px;
+  }
+
+  .tag {
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+
+  .footerInfo {
+    padding: 0 10px;
+  }
+}

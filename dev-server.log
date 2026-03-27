@@ -1,0 +1,24 @@
+
+> byredo-project@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 1822ms
+ ○ Compiling / ...
+ ✓ Compiled / in 4.8s (1468 modules)
+ GET / 200 in 5041ms
+ GET / 200 in 59ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 681ms (1395 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 852ms
+ GET /_next/static/chunks/app/LayoutGroupContext.mjs.map 404 in 17ms
+ ○ Compiling /shop ...
+ ✓ Compiled /shop in 1004ms (1431 modules)
+ GET /shop 200 in 1312ms
+ ○ Compiling /shop/[product] ...
+ ✓ Compiled /shop/[product] in 5.4s (2659 modules)
+ ✓ Compiled in 4.4s (2624 modules)
+ ✓ Compiled in 4.3s (2624 modules)

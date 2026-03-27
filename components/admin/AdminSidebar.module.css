@@ -1,0 +1,104 @@
+.sidebar {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    display: block;
+    width: 280px;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(15, 23, 42, 0.08);
+    background: #efebe3;
+    padding: 18px;
+    overflow: hidden;
+  }
+}
+
+.brand {
+  display: block;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 24px;
+  background: #fbfaf7;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.brandEyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.brandTitle {
+  margin-top: 8px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: #020617;
+}
+
+.brandText {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.nav {
+  margin-top: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 18px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link:hover {
+  background: #ffffff;
+  color: #020617;
+}
+
+.linkActive {
+  background: #020617;
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.panel {
+  margin-top: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 24px;
+  background: #fbfaf7;
+  padding: 16px;
+}
+
+.panelEyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.panelText {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #64748b;
+}

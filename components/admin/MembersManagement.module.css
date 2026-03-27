@@ -1,0 +1,376 @@
+﻿.page {
+  display: grid;
+  gap: 16px;
+}
+
+.hero,
+.metricCard,
+.tableCard,
+.modalCard {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(135deg, #fbfaf7 0%, #f0ebe2 100%);
+  padding: 20px 22px;
+}
+
+.eyebrow,
+.metricLabel,
+.searchLabel,
+.detailLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.title {
+  margin-top: 6px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: #020617;
+}
+
+.description {
+  margin-top: 8px;
+  max-width: 780px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+.heroMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.metaChip,
+.filterButton,
+.filterButtonActive,
+.detailButton,
+.pageButton,
+.closeButton,
+.saveButton,
+.primaryAction {
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.metaChip,
+.filterButton,
+.detailButton,
+.pageButton,
+.closeButton {
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: #ffffff;
+  color: #475569;
+}
+
+.primaryAction,
+.filterButtonActive,
+.saveButton {
+  border: 1px solid #020617;
+  background: #020617;
+  color: #ffffff;
+}
+
+.metaChip {
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+
+.primaryAction,
+.filterButton,
+.filterButtonActive,
+.detailButton,
+.pageButton,
+.closeButton,
+.saveButton {
+  padding: 10px 14px;
+}
+
+.metricGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.metricCard {
+  background: #ffffff;
+  padding: 16px;
+}
+
+.metricValue {
+  margin-top: 10px;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  color: #020617;
+}
+
+.metricMeta {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.tableCard {
+  display: grid;
+  gap: 16px;
+  background: #fbfaf7;
+  padding: 18px;
+}
+
+.toolbar,
+.modalHeader,
+.pagination,
+.modalActions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.searchField,
+.inputField {
+  display: grid;
+  gap: 8px;
+}
+
+.searchField {
+  width: min(420px, 100%);
+}
+
+.searchInput,
+.roleSelect {
+  width: 100%;
+  min-height: 52px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  background: #ffffff;
+  padding: 13px 16px;
+  font-size: 14px;
+  color: #0f172a;
+  outline: none;
+}
+
+.searchInput:focus,
+.roleSelect:focus {
+  border-color: rgba(15, 23, 42, 0.3);
+}
+
+.filterGroup,
+.paginationButtons,
+.roleControls,
+.createGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.createGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tableWrap {
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  background: #ffffff;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.2fr) 0.8fr 0.7fr 0.7fr 0.5fr 0.6fr;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.tableWrap > div + div {
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.tableHead {
+  background: #f5f1e9;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.primaryCell {
+  font-weight: 700;
+  color: #020617;
+}
+
+.secondaryCell {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.empty {
+  padding: 28px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.paginationMeta,
+.pageIndicator,
+.roleDescription,
+.roleHint,
+.errorText,
+.successText {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.pageButton:disabled,
+.saveButton:disabled,
+.roleSelect:disabled,
+.primaryAction:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.48);
+}
+
+.modalCard {
+  width: min(760px, 100%);
+  display: grid;
+  gap: 16px;
+  background: #fbfaf7;
+  padding: 22px;
+}
+
+.modalTitle,
+.roleTitle {
+  margin-top: 6px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #020617;
+}
+
+.detailGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.detailItem,
+.rolePanel {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 20px;
+  background: #ffffff;
+  padding: 16px;
+}
+
+.detailItem {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.rolePanel {
+  display: grid;
+  gap: 14px;
+}
+
+.roleControls {
+  align-items: stretch;
+}
+
+.saveButton {
+  min-width: 112px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.errorText {
+  color: #991b1b;
+}
+
+.successText {
+  color: #166534;
+}
+
+@media (max-width: 1400px) {
+  .metricGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .toolbar,
+  .hero,
+  .modalHeader,
+  .pagination,
+  .modalActions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tableWrap {
+    overflow-x: auto;
+  }
+
+  .tableRow {
+    min-width: 860px;
+  }
+}
+
+@media (max-width: 768px) {
+  .metricGrid,
+  .detailGrid,
+  .createGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .tableCard,
+  .modalCard {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .metricValue {
+    font-size: 32px;
+  }
+
+  .roleControls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

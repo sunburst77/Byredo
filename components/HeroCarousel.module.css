@@ -1,0 +1,189 @@
+.hero {
+  width: 100%;
+  height: 979px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: white;
+}
+
+.heroContainer {
+  width: 100%;
+  display: flex;
+  height: 100%;
+}
+
+.heroLeft {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 440px 10px;
+  overflow: hidden;
+}
+
+.heroLeftBg {
+  position: absolute;
+  inset: 0;
+  background-color: #9b9b9b;
+}
+
+.heroLeftImage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heroLeftText {
+  position: relative;
+  z-index: 10;
+  padding: 0 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.heroRight {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 440px 10px;
+  overflow: hidden;
+}
+
+.heroRightBg {
+  position: absolute;
+  inset: 0;
+  background-color: #afafaf;
+}
+
+.heroRightImage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heroRightText {
+  position: relative;
+  z-index: 10;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.heroCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.heroCenterTitle {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.heroCenterSubtitle {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.carouselImage {
+  will-change: transform;
+}
+
+.carouselImage.active {
+  will-change: transform;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    height: 600px;
+  }
+
+  .heroLeft,
+  .heroRight {
+    padding: 200px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 350px;
+    flex-direction: column;
+  }
+
+  .heroLeft,
+  .heroRight {
+    flex: none;
+    width: 100%;
+    height: 50%;
+    padding: 80px 8px;
+  }
+
+  .heroLeftText,
+  .heroRightText {
+    font-size: 13px;
+    padding: 0 8px;
+  }
+
+  .heroCenter {
+    position: relative;
+    transform: none;
+    left: auto;
+    top: auto;
+    gap: 12px;
+  }
+
+  .heroCenterTitle {
+    font-size: 22px;
+  }
+
+  .heroCenterSubtitle {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    height: 300px;
+  }
+
+  .heroLeft,
+  .heroRight {
+    padding: 60px 6px;
+  }
+
+  .heroLeftText,
+  .heroRightText {
+    font-size: 11px;
+    padding: 0 6px;
+  }
+
+  .heroCenter {
+    gap: 10px;
+  }
+
+  .heroCenterTitle {
+    font-size: 18px;
+  }
+
+  .heroCenterSubtitle {
+    font-size: 11px;
+  }
+}

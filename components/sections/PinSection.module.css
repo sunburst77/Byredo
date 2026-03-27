@@ -1,0 +1,193 @@
+/* ═══════════════════════════════════════════
+   PinSection — 스크롤 핀 + 3D 향수병 뷰어
+   ═══════════════════════════════════════════ */
+
+/* 스크롤 공간 확보 (화면 높이 × 6) */
+.pinSection {
+  position: relative;
+  min-height: 600vh;
+}
+
+/* 뷰포트에 고정되는 컨테이너 */
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: #0a0a0a;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ── 왼쪽: 3D 뷰어 패널 ─────────────────────── */
+.viewerPane {
+  position: relative;
+  flex: 0 0 58%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 3D 모델 로딩 중 플레이스홀더 */
+.viewerLoading {
+  width: 100%;
+  height: 100%;
+  background: #0a0a0a;
+}
+
+/* ── 오른쪽: 텍스트 패널 ────────────────────── */
+.contentPane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3.5rem 0 2.5rem;
+  color: #fff;
+  position: relative;
+  /* 패널 왼쪽 구분선 */
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ── 단계 카운터 ─────────────────────────────── */
+.stepCounter {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stepCurrent {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  color: #fff;
+  line-height: 1;
+  font-family: 'Georgia', serif;
+}
+
+.stepDivider {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.stepTotal {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.1em;
+}
+
+/* ── 메인 텍스트 블록 ────────────────────────── */
+.textBlock {
+  margin-bottom: 2.5rem;
+}
+
+.stepTitle {
+  font-size: clamp(1.6rem, 3vw, 3rem);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 1.25rem 0;
+  /* 단계 전환 시 부드러운 페이드 */
+  animation: fadeUp 0.5s ease both;
+}
+
+.stepSubtitle {
+  font-size: clamp(0.65rem, 1vw, 0.8rem);
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.9;
+  animation: fadeUp 0.5s ease 0.08s both;
+}
+
+/* ── 뷰 노트 (카메라 앵글 안내) ──────────────── */
+.viewNote {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  margin: 0 0 3rem 0;
+}
+
+/* ── 단계 인디케이터 도트 ────────────────────── */
+.dotRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  transition: background 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+  cursor: default;
+}
+
+.dotActive {
+  background: #fff;
+  border-color: #fff;
+  transform: scale(1.2);
+}
+
+/* ── 하단 진행 바 ─────────────────────────────── */
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.progressFill {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  transition: width 0.05s linear;
+}
+
+/* ── 애니메이션 ──────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── 반응형: 좁은 화면 ───────────────────────── */
+@media (max-width: 768px) {
+  .stickyContainer {
+    flex-direction: column;
+  }
+
+  .viewerPane {
+    flex: 0 0 55vh;
+  }
+
+  .contentPane {
+    flex: 1;
+    padding: 1.5rem 1.5rem 2rem;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    justify-content: flex-start;
+  }
+
+  .stepCounter {
+    margin-bottom: 1rem;
+  }
+
+  .textBlock {
+    margin-bottom: 1rem;
+  }
+
+  .viewNote {
+    margin-bottom: 1.5rem;
+  }
+}

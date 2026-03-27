@@ -1,0 +1,315 @@
+﻿.page {
+  display: grid;
+  gap: 16px;
+}
+
+.hero,
+.sidebarCard,
+.formCard,
+.logCard {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(135deg, #fbfaf7 0%, #f0ebe2 100%);
+  padding: 20px 22px;
+}
+
+.eyebrow,
+.fieldLabel,
+.sidebarTitle {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.title,
+.sectionTitle {
+  margin-top: 6px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: #020617;
+}
+
+.sectionTitle {
+  font-size: 24px;
+}
+
+.description,
+.sectionDescription,
+.sidebarText,
+.fieldDescription,
+.logSummary,
+.logMeta,
+.designList p,
+.emptyLog {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+.description {
+  margin-top: 8px;
+  max-width: 760px;
+  font-size: 13px;
+}
+
+.heroMeta,
+.formActions,
+.formHeader {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.heroMeta,
+.formHeader {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.metaChip,
+.changeChip,
+.primaryButton,
+.ghostButton {
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.metaChip,
+.changeChip,
+.ghostButton {
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: #ffffff;
+  color: #475569;
+}
+
+.metaChip,
+.changeChip {
+  padding: 8px 12px;
+}
+
+.primaryButton {
+  border: 1px solid #020617;
+  background: #020617;
+  color: #ffffff;
+  padding: 12px 18px;
+}
+
+.ghostButton {
+  padding: 8px 12px;
+}
+
+.layout {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 280px minmax(0, 1fr) 320px;
+  align-items: start;
+}
+
+.sidebar,
+.content,
+.logPanel {
+  min-width: 0;
+}
+
+.sidebarCard,
+.formCard,
+.logCard {
+  background: #ffffff;
+  padding: 18px;
+}
+
+.menuList,
+.logList,
+.designList {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.menuButton {
+  display: block;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  background: #fbfaf7;
+  padding: 14px;
+  text-align: left;
+}
+
+.menuButtonActive {
+  border-color: #020617;
+  background: #020617;
+}
+
+.menuButtonActive .menuLabel,
+.menuButtonActive .menuIcon {
+  color: #ffffff;
+}
+
+.menuButtonInner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menuIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.08);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #020617;
+}
+
+.menuLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: #020617;
+}
+
+.formGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.fieldWide {
+  grid-column: 1 / -1;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 18px;
+  background: #ffffff;
+  padding: 13px 16px;
+  font-size: 14px;
+  color: #0f172a;
+  outline: none;
+}
+
+.input {
+  min-height: 52px;
+}
+
+.textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.inputWrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 52px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 999px;
+  background: #ffffff;
+  padding: 10px 14px;
+  color: #0f172a;
+}
+
+.switchOn {
+  background: #eef2ff;
+}
+
+.switchOff {
+  background: #fbfaf7;
+}
+
+.switchThumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #020617;
+}
+
+.successMessage {
+  margin-top: 16px;
+  border-radius: 18px;
+  background: #eef2ff;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #334155;
+}
+
+.logItem,
+.designList > div,
+.emptyLog {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 18px;
+  background: #fbfaf7;
+  padding: 14px;
+}
+
+.logTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #020617;
+}
+
+.logMeta {
+  margin-top: 6px;
+}
+
+@media (max-width: 1400px) {
+  .layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+
+  .logPanel {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .layout,
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .formHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title,
+  .sectionTitle {
+    font-size: 24px;
+  }
+}

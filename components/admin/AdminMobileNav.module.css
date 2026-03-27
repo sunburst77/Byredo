@@ -1,0 +1,64 @@
+﻿.shell {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .shell {
+    display: block;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    background: #fbfaf7;
+    padding: 10px 16px 14px;
+  }
+
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    border-radius: 999px;
+    background: #ffffff;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+  }
+
+  .toggleIcon {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .toggleIcon span {
+    display: block;
+    width: 14px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+  }
+
+  .panel {
+    margin-top: 12px;
+    display: grid;
+    gap: 8px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 20px;
+    background: #ffffff;
+    padding: 10px;
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  }
+
+  .link {
+    border-radius: 16px;
+    background: #fbfaf7;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #475569;
+  }
+
+  .linkActive {
+    background: #020617;
+    color: #ffffff;
+  }
+}

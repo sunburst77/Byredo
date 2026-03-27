@@ -1,0 +1,204 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0.78)),
+    rgba(0, 0, 0, 0.75);
+}
+
+.panel {
+  position: relative;
+  width: min(100%, 520px);
+  max-height: calc(100vh - 48px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(236, 236, 236, 0.96));
+  color: #111111;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+  padding: 28px;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.56);
+}
+
+.title {
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.closeButton {
+  border: 0;
+  background: transparent;
+  color: rgba(17, 17, 17, 0.7);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.toggleRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.toggleButton {
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  background: rgba(255, 255, 255, 0.52);
+  padding: 12px 14px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.54);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.toggleButtonActive {
+  border-color: #111111;
+  background: #111111;
+  color: #f4f4f4;
+}
+
+.content {
+  border-top: 1px solid rgba(17, 17, 17, 0.1);
+  padding-top: 22px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.description {
+  color: rgba(17, 17, 17, 0.7);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #111111;
+}
+
+.field input {
+  width: 100%;
+  border: 1px solid rgba(17, 17, 17, 0.14);
+  background: rgba(255, 255, 255, 0.86);
+  padding: 14px 16px;
+  color: #111111;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-transform: none;
+  outline: none;
+}
+
+.field input::placeholder {
+  color: rgba(17, 17, 17, 0.38);
+}
+
+.field input:focus {
+  border-color: #111111;
+}
+
+.feedback {
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.feedbackSuccess {
+  border-color: rgba(17, 17, 17, 0.22);
+  background: rgba(17, 17, 17, 0.08);
+  color: #111111;
+}
+
+.feedbackError {
+  border-color: rgba(17, 17, 17, 0.14);
+  background: rgba(17, 17, 17, 0.05);
+  color: rgba(17, 17, 17, 0.72);
+}
+
+.submitButton {
+  border: 1px solid #111111;
+  background: #111111;
+  color: #f4f4f4;
+  padding: 14px 18px;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.switchText {
+  font-size: 13px;
+  color: rgba(17, 17, 17, 0.68);
+}
+
+.inlineButton {
+  border: 0;
+  background: transparent;
+  color: #111111;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .root {
+    padding: 14px;
+  }
+
+  .panel {
+    max-height: calc(100vh - 28px);
+    padding: 22px 18px 18px;
+  }
+
+  .header {
+    align-items: center;
+  }
+
+  .title {
+    font-size: 25px;
+  }
+}

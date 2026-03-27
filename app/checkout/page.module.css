@@ -1,0 +1,274 @@
+.page {
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(245, 245, 245, 0.92) 0%, rgba(255, 255, 255, 1) 32%),
+    #fff;
+}
+
+.main {
+  padding: 120px 24px 72px;
+}
+
+.shell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
+  gap: 24px;
+}
+
+.infoCard,
+.orderCard {
+  background-color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 40px;
+  min-height: 100%;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.eyebrow,
+.sectionLabel,
+.lineLabel,
+.metaLabel {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.56);
+}
+
+.pageTitle,
+.cardTitle {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #000;
+  max-width: 10ch;
+}
+
+.cardTitle {
+  font-size: 28px;
+  max-width: none;
+}
+
+.lead {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  color: rgba(0, 0, 0, 0.82);
+  max-width: 58ch;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.metaValue {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.roadmapBlock {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.stepList {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.stepItem {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.stepIndex,
+.stepText,
+.lineValue,
+.helperText,
+.quantityValue,
+.totalLabel,
+.totalValue {
+  font-family: 'SK-Modernist', sans-serif;
+  color: #000;
+}
+
+.stepIndex {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.stepText {
+  font-size: 14px;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+}
+
+.lineList {
+  display: grid;
+  gap: 18px;
+}
+
+.lineRow,
+.quantityRow,
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+}
+
+.lineRow,
+.quantityRow {
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.lineValue {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.quantityControl {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.quantityButton {
+  width: 38px;
+  height: 38px;
+  border: none;
+  background: #fff;
+  color: #000;
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.quantityButton:hover {
+  background: #f2f2f2;
+}
+
+.quantityButton:focus-visible,
+.primaryButton:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+
+.quantityValue {
+  min-width: 44px;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+}
+
+.totalRow {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(0, 0, 0, 0.16);
+}
+
+.totalLabel {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.totalValue {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.primaryButton {
+  width: 100%;
+  margin-top: 28px;
+  border: none;
+  background: #000;
+  color: #fff;
+  padding: 16px 20px;
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.primaryButton:hover {
+  background: #222;
+}
+
+.helperText {
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+  color: rgba(0, 0, 0, 0.68);
+}
+
+@media (max-width: 960px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .pageTitle,
+  .cardTitle {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: 96px 16px 48px;
+  }
+
+  .infoCard,
+  .orderCard {
+    padding: 24px;
+  }
+
+  .metaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .lineRow,
+  .quantityRow,
+  .totalRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

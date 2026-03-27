@@ -1,0 +1,425 @@
+/* =====================
+   Scroll Container — 네이티브 스크롤 컨테이너
+   Lenis 비활성화하여 position: sticky가 제대로 동작하도록 함
+   PageTransition의 overflow: hidden을 우회하기 위해 position: absolute 사용
+   ===================== */
+.scrollContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =====================
+   Page Wrapper — 일반 문서 흐름
+   overflow-x: hidden을 여기에 두면 새로운 스크롤 컨테이너가 생성되어
+   position: sticky가 viewport 대신 이 요소를 기준으로 동작함 → 핀 효과 깨짐
+   가로 스크롤 방지는 globals.css의 html, body 에서 처리
+   ===================== */
+.pageWrapper {
+  background-color: #fff;
+  position: relative;
+}
+
+/* =====================
+   Pin Spacer — 스크롤 길이 (600vh)
+   position: relative + sticky 자식을 통해 핀 효과 구현
+   ===================== */
+.pinSpacer {
+  min-height: 600vh;
+  position: relative;
+}
+
+/* =====================
+   Sticky Inner — 뷰포트에 고정 (핀 효과)
+   pinSpacer 스크롤이 끝나면 자동으로 핀 해제
+   ===================== */
+.stickyInner {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* =====================
+   헤더 전환 레이어
+   ===================== */
+.headerLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.headerLayerVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.headerLayerHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =====================
+   Two-Column Layout
+   ===================== */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 60px);
+  margin-top: 60px;
+}
+
+/* =====================
+   Left Panel — 3D Viewer
+   ===================== */
+.leftPanel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+
+/* =====================
+   Right Panel — Info
+   ===================== */
+.rightPanel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =====================
+   Info Block — 패딩 래퍼
+   ===================== */
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 10% 0 15%;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* =====================
+   Info Stack — 슬라이드 컨테이너
+   ===================== */
+.infoStack {
+  position: relative;
+  min-height: 280px;
+  width: 100%;
+}
+
+/* =====================
+   Info Slide — 각 단계 텍스트 블록
+   ===================== */
+.infoSlide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.infoSlideActive {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* =====================
+   Step 0 — 상품명
+   ===================== */
+.productName {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+/* =====================
+   Step 0 — 설명
+   ===================== */
+.description {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  max-width: 90%;
+}
+
+/* =====================
+   Step 0 — 가격 행
+   ===================== */
+.priceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 90%;
+  margin-bottom: 35px;
+}
+
+.price {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: 0.02em;
+}
+
+.heartBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: opacity 0.2s ease;
+}
+
+.heartBtn:hover {
+  opacity: 0.6;
+}
+
+.heartBtn:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+
+.heartActive svg {
+  fill: #000;
+}
+
+/* =====================
+   Step 0 — 구매 버튼
+   ===================== */
+.purchaseBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  padding: 14px 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.purchaseBtn:hover {
+  background-color: #222;
+}
+
+.purchaseBtn:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+
+/* =====================
+   Steps 1~5 — 핀 타이틀
+   ===================== */
+.pinTitle {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+/* =====================
+   Steps 1~5 — 핀 디스크립션
+   ===================== */
+.pinDescription {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  max-width: 90%;
+}
+
+/* =====================
+   Dot Navigation
+   ===================== */
+.dotNav {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.dot {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1.5px solid #aaa;
+  background-color: transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.dot:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+
+.dot:hover:not(.dotActive) {
+  border-color: #555;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.dotActive {
+  background-color: #000;
+  border-color: #000;
+}
+
+/* =====================
+   Responsive
+   ===================== */
+@media (max-width: 768px) {
+  .stickyInner {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    height: auto;
+    margin-top: 50px;
+  }
+
+  .leftPanel {
+    height: 60vw;
+    min-height: 280px;
+  }
+
+  .rightPanel {
+    height: auto;
+    min-height: 50vh;
+    padding: 40px 0;
+  }
+
+  .infoBlock {
+    padding: 0 40px;
+  }
+
+  .infoStack {
+    min-height: 320px;
+  }
+
+  .description {
+    max-width: 280px;
+    font-size: 16px;
+  }
+
+  .pinDescription {
+    max-width: 280px;
+  }
+
+  .purchaseBtn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .priceRow {
+    max-width: 280px;
+  }
+
+  .dotNav {
+    right: 16px;
+    top: auto;
+    bottom: 24px;
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout {
+    margin-top: 44px;
+  }
+
+  .leftPanel {
+    height: 80vw;
+  }
+
+  .infoBlock {
+    padding: 0 24px;
+  }
+
+  .productName {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .description {
+    font-size: 16px;
+    max-width: 240px;
+    margin-bottom: 18px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .purchaseBtn {
+    font-size: 10px;
+    padding: 13px 0;
+  }
+
+  .pinTitle {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .pinDescription {
+    font-size: 16px;
+    max-width: 240px;
+    margin-bottom: 18px;
+  }
+}
