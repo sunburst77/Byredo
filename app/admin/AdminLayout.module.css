@@ -1,18 +1,18 @@
 .shell {
-  height: 100vh;
+  min-height: 100vh;
   background: #f4f1ea;
   color: #0f172a;
-  overflow: hidden;
 }
 
 .frame {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  align-items: stretch;
 }
 
 .content {
   min-width: 0;
-  min-height: 0;
+  min-height: 100vh;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -20,23 +20,21 @@
 
 .main {
   flex: 1;
-  min-height: 0;
+  min-height: auto;
   padding: 20px 24px 24px;
 }
 
 .mainDashboard {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .mainScrollable {
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 @media (max-width: 1024px) {
   .shell,
   .frame {
-    height: auto;
     min-height: 100vh;
     overflow: visible;
   }

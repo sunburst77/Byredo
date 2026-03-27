@@ -1,8 +1,11 @@
-﻿'use client'
+'use client'
 
 import { useMemo, useState } from 'react'
+import { loadTossPayments, ANONYMOUS } from '@tosspayments/tosspayments-sdk'
 import styles from '@/app/checkout/page.module.css'
 import { formatPrice } from '@/lib/shop/products'
+
+const CLIENT_KEY = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY ?? ''
 
 type CheckoutQuantityPanelProps = {
   productName: string
@@ -18,7 +21,37 @@ export default function CheckoutQuantityPanel({
   defaultQuantity = 1,
 }: CheckoutQuantityPanelProps) {
   const [quantity, setQuantity] = useState(Math.max(1, defaultQuantity))
+  const [isPaying, setIsPaying] = useState(false)
+  const [payError, setPayError] = useState<string | null>(null)
   const total = useMemo(() => unitPrice * quantity, [quantity, unitPrice])
+
+  async function handlePayment() {
+    setPayError(null)
+    setIsPaying(true)
+    try {
+      const tossPayments = await loadTossPayments(CLIENT_KEY)
+      const payment = tossPayments.payment({ customerKey: ANONYMOUS })
+
+      const orderId = `order-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
+      const origin = typeof window !== 'undefined' ? window.location.origin : ''
+
+      await payment.requestPayment({
+        method: 'CARD',
+        amount: { currency: 'KRW', value: total },
+        orderId,
+        orderName: `${productName} x ${quantity}`,
+        customerName: 'Guest',
+        customerEmail: 'guest@byredo.com',
+        successUrl: `${origin}/checkout/success`,
+        failUrl: `${origin}/checkout/fail`,
+      })
+    } catch (err) {
+      const message = err instanceof Error ? err.message : '결제 요청 중 오류가 발생했습니다.'
+      setPayError(message)
+    } finally {
+      setIsPaying(false)
+    }
+  }
 
   return (
     <section className={styles.orderCard} aria-labelledby="order-summary-heading">
@@ -67,14 +100,21 @@ export default function CheckoutQuantityPanel({
         <span className={styles.totalValue}>{formatPrice(total, currency)}</span>
       </div>
 
-      <button type="button" className={styles.primaryButton}>
-        Continue to Payment
+      <button
+        type="button"
+        className={styles.primaryButton}
+        onClick={handlePayment}
+        disabled={isPaying}
+        aria-busy={isPaying}
+      >
+        {isPaying ? 'Processing…' : 'Continue to Payment'}
       </button>
 
-      <p className={styles.helperText}>
-        Payment processing is not enabled yet. This screen is ready for future Supabase and Toss
-        Payments integration.
-      </p>
+      {payError && (
+        <p className={styles.helperText} role="alert" style={{ color: '#c00' }}>
+          {payError}
+        </p>
+      )}
     </section>
   )
 }

@@ -1,0 +1,101 @@
+.page {
+  min-height: 100vh;
+  background: #fff;
+}
+
+.main {
+  padding: 120px 24px 72px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: min(560px, 100%);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.eyebrow {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.56);
+  margin: 0;
+}
+
+.title {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #000;
+  margin: 0;
+}
+
+.detail {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.detail li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  gap: 16px;
+}
+
+.label {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.56);
+}
+
+.value {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: #000;
+  text-align: right;
+}
+
+.errorMessage {
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #c00;
+  margin: 0;
+}
+
+.homeButton {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 16px 20px;
+  background: #000;
+  color: #fff;
+  font-family: 'SK-Modernist', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.homeButton:hover {
+  background: #222;
+}

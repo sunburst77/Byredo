@@ -1,4 +1,4 @@
-﻿'use server'
+'use server'
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
@@ -423,7 +423,7 @@ export async function updateOrderStatusAction(formData: FormData) {
     | 'refunded'
 
   if (!orderId || !orderStatusOptions.has(status)) {
-    throw new Error('???? ?? ?? ?? ?? ?????.')
+    throw new Error('유효하지 않은 주문 상태 변경 요청입니다.')
   }
 
   const timestampFields: Record<string, string | null> = {
@@ -442,14 +442,14 @@ export async function updateOrderStatusAction(formData: FormData) {
     .eq('id', orderId)
 
   if (error) {
-    throw new Error('?? ?? ??? ??????.')
+    throw new Error('주문 상태 변경에 실패했습니다.')
   }
 
   revalidateOrderRoutes()
 
   return {
     ok: true,
-    message: '?? ??? ???????.',
+    message: '주문 상태가 변경되었습니다.',
   }
 }
 
@@ -459,7 +459,7 @@ export async function updatePaymentStatusAction(formData: FormData) {
   const status = String(formData.get('status') ?? '').trim() as 'pending' | 'paid' | 'failed' | 'cancelled' | 'refunded'
 
   if (!paymentId || !paymentStatusOptions.has(status)) {
-    throw new Error('???? ?? ?? ?? ?? ?????.')
+    throw new Error('유효하지 않은 결제 상태 변경 요청입니다.')
   }
 
   const now = new Date().toISOString()
@@ -475,13 +475,13 @@ export async function updatePaymentStatusAction(formData: FormData) {
     .eq('id', paymentId)
 
   if (error) {
-    throw new Error('?? ?? ??? ??????.')
+    throw new Error('결제 상태 변경에 실패했습니다.')
   }
 
   revalidateOrderRoutes()
 
   return {
     ok: true,
-    message: '?? ??? ???????.',
+    message: '결제 상태가 변경되었습니다.',
   }
 }
