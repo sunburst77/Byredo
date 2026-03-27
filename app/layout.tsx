@@ -1,9 +1,9 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { headers } from 'next/headers'
 import './globals.css'
 import { PageTransition } from '@/components/PageTransition'
-
+import Header from '@/components/Header'
 const LenisInit = dynamic(
   () => import('@/components/SmoothScroll').then((mod) => ({ default: mod.LenisInit })),
   { ssr: false }
@@ -45,6 +45,8 @@ export default async function RootLayout({
                 __html: `(function(){if(typeof window!=='undefined'&&window.location.pathname==='/'){var d=document.createElement('div');d.id='splash-overlay-initial';d.style.cssText='position:fixed;inset:0;z-index:9999;background:#000;';document.body.insertBefore(d,document.body.firstChild);}})();`,
               }}
             />
+            {/* Header — PageTransition(transform) 밖에 배치해야 position:fixed 정상 동작 */}
+            <Header />
             <PageTransition>{children}</PageTransition>
             <LenisInit />
             <SplashScreenController />

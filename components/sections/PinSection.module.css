@@ -88,7 +88,7 @@
   line-height: 1.05;
   margin: 0 0 1.25rem 0;
   /* 단계 전환 시 부드러운 페이드 */
-  animation: fadeUp 0.5s ease both;
+  animation: fadeUp 0.8s ease both;
 }
 
 .stepSubtitle {
@@ -98,7 +98,7 @@
   text-transform: uppercase;
   margin: 0;
   line-height: 1.9;
-  animation: fadeUp 0.5s ease 0.08s both;
+  animation: fadeUp 0.8s ease 0.12s both;
 }
 
 /* ── 뷰 노트 (카메라 앵글 안내) ──────────────── */
@@ -153,7 +153,7 @@
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;

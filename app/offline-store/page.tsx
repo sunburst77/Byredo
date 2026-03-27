@@ -3,7 +3,6 @@
 import { useRef, useEffect, useLayoutEffect, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Header from '@/components/Header'
 import styles from './page.module.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -112,8 +111,6 @@ export default function OfflineStorePage() {
     >
       <div ref={sectionRef} className={styles.pinSection}>
         <div className={styles.stickyContainer}>
-          <Header />
-
           <div className={styles.trackWrapper}>
             <div ref={trackRef} className={styles.track}>
               {stores.map((store, index) => (

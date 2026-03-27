@@ -16,17 +16,17 @@ export function EditorialImageReveal() {
     const el = imgRef.current
     if (!el) return
 
-    gsap.set(el, { clipPath: 'inset(100% 0 0 0)', y: 40, opacity: 0 })
+    gsap.set(el, { clipPath: 'inset(0 0 100% 0)', y: -40, opacity: 0 })
 
     let tween: gsap.core.Tween | null = null
 
     // PageTransition 완료 후 ScrollTrigger 생성
     const timer = setTimeout(() => {
       tween = gsap.to(el, {
-        clipPath: 'inset(0% 0 0 0)',
+        clipPath: 'inset(0 0 0% 0)',
         y: 0,
         opacity: 1,
-        duration: 0.9,
+        duration: 1.4,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: el,
@@ -67,19 +67,19 @@ export function JournalSectionReveal() {
     const items = section.querySelectorAll<HTMLElement>('.reveal-item')
     if (items.length === 0) return
 
-    gsap.set(items, { clipPath: 'inset(100% 0 0 0)', y: 40, opacity: 0 })
+    gsap.set(items, { clipPath: 'inset(0 0 100% 0)', y: -40, opacity: 0 })
 
     let tween: gsap.core.Tween | null = null
 
     // PageTransition 완료 후 ScrollTrigger 생성
     const timer = setTimeout(() => {
       tween = gsap.to(items, {
-        clipPath: 'inset(0% 0 0 0)',
+        clipPath: 'inset(0 0 0% 0)',
         y: 0,
         opacity: 1,
-        duration: 0.9,
+        duration: 1.4,
         ease: 'power3.out',
-        stagger: 0.15,
+        stagger: 0.22,
         scrollTrigger: {
           trigger: section,
           start: 'top 88%',

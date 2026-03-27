@@ -1,4 +1,4 @@
-﻿.container {
+.container {
   width: 100%;
   background-color: white;
   position: relative;
@@ -77,9 +77,9 @@
 }
 
 .productCardWrap:global(.reveal-item) {
-  clip-path: inset(100% 0 0 0);
+  clip-path: inset(0 0 100% 0);
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(-40px);
 }
 
 .productCard {

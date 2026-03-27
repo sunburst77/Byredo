@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
@@ -58,18 +58,18 @@ export default function RelatedProducts({ products, currentProductId, scroller }
     const items = track.querySelectorAll<HTMLElement>('.reveal-item')
     if (items.length === 0) return
 
-    gsap.set(items, { clipPath: 'inset(100% 0 0 0)', y: 40, opacity: 0 })
+    gsap.set(items, { clipPath: 'inset(0 0 100% 0)', y: -40, opacity: 0 })
 
     let tween: gsap.core.Tween | null = null
 
     const timer = setTimeout(() => {
       tween = gsap.to(items, {
-        clipPath: 'inset(0% 0 0 0)',
+        clipPath: 'inset(0 0 0% 0)',
         y: 0,
         opacity: 1,
-        duration: 0.9,
+        duration: 1.4,
         ease: 'power3.out',
-        stagger: 0.15,
+        stagger: 0.22,
         scrollTrigger: {
           trigger: track,
           start: 'top 88%',

@@ -65,7 +65,6 @@ export function PageTransition({ children }: PageTransitionProps) {
         position: 'relative',
         width: '100%',
         minHeight: '100vh',
-        overflow: 'hidden',
         margin: 0,
         padding: 0,
         top: 0,
@@ -78,8 +77,6 @@ export function PageTransition({ children }: PageTransitionProps) {
         animate={{ y: 0 }}
         transition={{ duration: TRANSITION_DURATION, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          willChange: 'transform',
-          backfaceVisibility: 'hidden',
           margin: 0,
           padding: 0,
           position: 'relative',

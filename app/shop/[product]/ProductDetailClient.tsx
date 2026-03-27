@@ -1,11 +1,10 @@
-﻿'use client'
+'use client'
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import dynamic from 'next/dynamic'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Header from '@/components/Header'
 import ShopPinHeader from '@/components/ShopPinHeader'
 import Footer from '@/components/Footer'
 import CheckoutModal from '@/components/checkout/CheckoutModal'
@@ -176,7 +175,6 @@ export default function ProductDetailClient({ product, products }: ProductDetail
     <div ref={scrollContainerRef} className={styles.scrollContainer} data-lenis-prevent>
       <div className={styles.pageWrapper}>
         <div className={`${styles.headerLayer} ${currentStep === 0 || isPinReleased ? styles.headerLayerVisible : styles.headerLayerHidden}`}>
-          <Header />
         </div>
         <div className={`${styles.headerLayer} ${currentStep > 0 && !isPinReleased ? styles.headerLayerVisible : styles.headerLayerHidden}`}>
           <ShopPinHeader onPurchase={openCheckout} />

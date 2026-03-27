@@ -4,7 +4,6 @@ import { useState, useRef, useCallback, useEffect } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import styles from './page.module.css'
-import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CopyAddressButton from './CopyAddressButton'
 import GoogleMap from './GoogleMap'
@@ -46,19 +45,19 @@ export default function DetailContent() {
     const items = gallery.querySelectorAll<HTMLElement>('.reveal-item')
     if (items.length === 0) return
 
-    gsap.set(items, { clipPath: 'inset(100% 0 0 0)', y: 40, opacity: 0 })
+    gsap.set(items, { clipPath: 'inset(0 0 100% 0)', y: -40, opacity: 0 })
 
     let tween: gsap.core.Tween | null = null
 
     // PageTransition 완료 후 ScrollTrigger 생성
     const timer = setTimeout(() => {
       tween = gsap.to(items, {
-        clipPath: 'inset(0% 0 0 0)',
+        clipPath: 'inset(0 0 0% 0)',
         y: 0,
         opacity: 1,
-        duration: 0.9,
+        duration: 1.4,
         ease: 'power3.out',
-        stagger: 0.15,
+        stagger: 0.22,
         scrollTrigger: {
           trigger: gallery,
           start: 'top 88%',
@@ -93,8 +92,6 @@ export default function DetailContent() {
 
   return (
     <div className={styles.container}>
-      <Header />
-
       <div className={styles.mainContent}>
         <h1 className={styles.mainTitle}>LE BON MARCHE</h1>
 

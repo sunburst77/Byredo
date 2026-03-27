@@ -1,11 +1,10 @@
-﻿'use client'
+'use client'
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import type { Product, ShopCategory } from '@/lib/shop/products'
 import { formatPrice } from '@/lib/shop/products'
@@ -40,7 +39,7 @@ export default function ShopPageClient({ products, categories }: ShopPageClientP
     const items = grid.querySelectorAll<HTMLElement>('.reveal-item')
     if (items.length === 0) return
 
-    gsap.set(items, { clipPath: 'inset(100% 0 0 0)', y: 40, opacity: 0 })
+    gsap.set(items, { clipPath: 'inset(0 0 100% 0)', y: -40, opacity: 0 })
   }, [filteredProducts])
 
   useEffect(() => {
@@ -54,12 +53,12 @@ export default function ShopPageClient({ products, categories }: ShopPageClientP
     tweenRef.current?.kill()
 
     const tween = gsap.to(items, {
-      clipPath: 'inset(0% 0 0 0)',
+      clipPath: 'inset(0 0 0% 0)',
       y: 0,
       opacity: 1,
-      duration: 0.6,
+      duration: 1.1,
       ease: 'power3.out',
-      stagger: 0.08,
+      stagger: 0.14,
     })
 
     tweenRef.current = tween
@@ -72,7 +71,6 @@ export default function ShopPageClient({ products, categories }: ShopPageClientP
 
   return (
     <div className={styles.container}>
-      <Header />
       <main className={styles.main}>
         <section className={styles.filterSection} aria-label="Product categories">
           <div className={styles.filterInner}>

@@ -1,5 +1,4 @@
-﻿import { notFound } from 'next/navigation'
-import Header from '@/components/Header'
+import { notFound } from 'next/navigation'
 import Footer from '@/components/Footer'
 import CheckoutInfoPanel from '@/components/checkout/CheckoutInfoPanel'
 import CheckoutQuantityPanel from '@/components/checkout/CheckoutQuantityPanel'
@@ -36,7 +35,6 @@ export default async function CheckoutPage({ searchParams }: CheckoutPageProps) 
 
   return (
     <div className={styles.page}>
-      <Header />
       <main className={styles.main}>
         <div className={styles.shell}>
           <CheckoutInfoPanel category={product.category} size={product.size} />

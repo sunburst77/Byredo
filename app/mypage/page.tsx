@@ -1,5 +1,4 @@
-﻿import Link from 'next/link'
-import Header from '@/components/Header'
+import Link from 'next/link'
 import Footer from '@/components/Footer'
 import { formatPrice } from '@/lib/shop/products'
 import { getMyPageData } from '@/lib/mypage/data'
@@ -42,7 +41,6 @@ export default async function MyPage() {
   if (!profile) {
     return (
       <div className={styles.page}>
-        <Header />
         <main className={styles.main}>
           <section className={styles.guestSection}>
             <p className={styles.eyebrow}>MY PAGE</p>
@@ -64,7 +62,6 @@ export default async function MyPage() {
 
   return (
     <div className={styles.page}>
-      <Header />
       <main className={styles.main}>
         <section className={styles.hero}>
           <div>

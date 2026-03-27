@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import styles from '../success/page.module.css'
 
@@ -17,7 +16,6 @@ export default async function PaymentFailPage({ searchParams }: FailPageProps) {
 
   return (
     <div className={styles.page}>
-      <Header />
       <main className={styles.main}>
         <div className={styles.card}>
           <p className={styles.eyebrow}>Payment Failed</p>

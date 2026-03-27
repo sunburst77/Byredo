@@ -12,8 +12,8 @@
 /* 진입 애니메이션은 inner wrapper에만 적용 */
 .inner {
   opacity: 0;
-  transform: translateY(48px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(-48px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
 .sectionVisible .inner {
