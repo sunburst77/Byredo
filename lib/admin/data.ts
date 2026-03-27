@@ -1,7 +1,6 @@
-﻿import 'server-only'
+import 'server-only'
 
 import { createSupabaseServerClient } from '@/lib/supabase/server'
-import { ensureDefaultShopCatalog } from '@/lib/shop/data'
 
 export type AdminMemberRow = {
   id: string
@@ -179,7 +178,6 @@ export async function getAdminDashboardData() {
 }
 
 export async function getAdminProducts() {
-  await ensureDefaultShopCatalog()
   const supabase = await createSupabaseServerClient()
   const { data } = await supabase
     .from('products')
@@ -207,7 +205,6 @@ export async function getAdminProducts() {
 }
 
 export async function getAdminCategories() {
-  await ensureDefaultShopCatalog()
   const supabase = await createSupabaseServerClient()
   const { data } = await supabase
     .from('categories')

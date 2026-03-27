@@ -6,6 +6,8 @@ import { AdminSidebar } from '@/components/admin/AdminSidebar'
 import { getCurrentAdminProfile } from '@/lib/admin/supabase-auth'
 import styles from './AdminLayout.module.css'
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminLayout({ children }: { children: ReactNode }) {
   const headerStore = await headers()
   const pathname = headerStore.get('x-pathname') ?? ''

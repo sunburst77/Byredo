@@ -1,6 +1,7 @@
-﻿import 'server-only'
+import 'server-only'
 
 import { createSupabaseAdminClient } from '@/lib/supabase/admin'
+import { createSupabaseServerClient } from '@/lib/supabase/server'
 import type { Product, ShopCategory } from '@/lib/shop/products'
 import { seedShopProducts } from '@/lib/shop/catalog-seed'
 
@@ -65,10 +66,9 @@ export async function ensureDefaultShopCatalog() {
 }
 
 export async function getShopCategories() {
-  await ensureDefaultShopCatalog()
 
-  const supabaseAdmin = createSupabaseAdminClient()
-  const { data } = await supabaseAdmin
+  const supabase = await createSupabaseServerClient()
+  const { data } = await supabase
     .from('categories')
     .select('id, name, slug')
     .eq('is_active', true)
@@ -86,10 +86,9 @@ export async function getShopCategories() {
 }
 
 export async function getShopProducts() {
-  await ensureDefaultShopCatalog()
 
-  const supabaseAdmin = createSupabaseAdminClient()
-  const { data } = await supabaseAdmin
+  const supabase = await createSupabaseServerClient()
+  const { data } = await supabase
     .from('products')
     .select('id, slug, name, price, short_description, description, thumbnail_url, categories(name, slug)')
     .eq('is_active', true)
@@ -118,4 +117,3 @@ export async function getShopProductBySlug(slug: string) {
   const products = await getShopProducts()
   return products.find((product) => product.slug === slug) ?? null
 }
-
