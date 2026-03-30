@@ -61,7 +61,8 @@ export default function ProductSection() {
 
     let tween: gsap.core.Tween | null = null
 
-    // PageTransition 완료 후 ScrollTrigger 생성
+    const isMobile = window.innerWidth <= 768
+
     const timer = setTimeout(() => {
       tween = gsap.to(items, {
         clipPath: 'inset(0 0 0% 0)',
@@ -70,11 +71,13 @@ export default function ProductSection() {
         duration: 1.4,
         ease: 'power3.out',
         stagger: 0.22,
-        scrollTrigger: {
-          trigger: grid,
-          start: 'top 88%',
-          once: true,
-        },
+        scrollTrigger: isMobile
+          ? undefined
+          : {
+              trigger: grid,
+              start: 'top 88%',
+              once: true,
+            },
       })
     }, 950)
 

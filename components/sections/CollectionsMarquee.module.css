@@ -201,10 +201,15 @@
 @media (max-width: 768px) {
   .section {
     padding: 100px 8px 80px;
+    min-height: auto;
   }
 
   .bgWord {
-    font-size: clamp(60px, 15vw, 200px);
+    font-size: clamp(32px, 10vw, 100px);
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    top: -30px;
   }
 
   .topBar {
@@ -234,6 +239,11 @@
 @media (max-width: 480px) {
   .section {
     padding: 80px 6px 60px;
+  }
+
+  .bgWord {
+    font-size: clamp(24px, 8vw, 72px);
+    top: -30px;
   }
 
   .card {

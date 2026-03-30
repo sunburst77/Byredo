@@ -7,6 +7,7 @@
   position: relative;
   z-index: 200;
   background-color: #FFF;
+  overflow: visible;
 }
 
 .loremHeader {
@@ -180,7 +181,7 @@
 
 @media (max-width: 768px) {
   .loremSection {
-    padding: 200px 8px 60px;
+    padding: 60px 8px 60px;
     gap: 8px;
   }
 
@@ -204,11 +205,14 @@
     flex-direction: column;
     gap: 8px;
     padding: 0 8px;
+    height: auto;
   }
 
   .productItemWrap {
+    flex: none;
     width: 100%;
     height: 350px;
+    min-height: 350px;
   }
 
   .productInfo {
@@ -227,7 +231,7 @@
 
 @media (max-width: 480px) {
   .loremSection {
-    padding: 150px 6px 50px;
+    padding: 40px 6px 50px;
     gap: 6px;
   }
 
@@ -253,7 +257,9 @@
   }
 
   .productItemWrap {
+    flex: none;
     height: 300px;
+    min-height: 300px;
   }
 
   .productInfo {
