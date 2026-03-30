@@ -13,32 +13,37 @@ interface Product {
   name: string
   price: string
   image: string
+  slug: string
 }
 
 const products: Product[] = [
   {
     id: 1,
-    name: 'Bal d\'Afrique',
+    name: "Bal d'Afrique",
     price: '₩280,000',
     image: '/assets/main/project/image1 1.jpg',
+    slug: 'bal-dafrique',
   },
   {
     id: 2,
     name: 'Gypsy Water',
     price: '₩320,000',
     image: '/assets/main/project/image2 1.jpg',
+    slug: 'gypsy-water',
   },
   {
     id: 3,
     name: 'Mojave Ghost',
     price: '₩295,000',
     image: '/assets/main/project/image3 1.jpg',
+    slug: 'mojave-ghost',
   },
   {
     id: 4,
-    name: 'Rose of No Man\'s Land',
+    name: "Rose of No Man's Land",
     price: '₩310,000',
     image: '/assets/main/project/image4 1.jpg',
+    slug: 'rose-of-no-mans-land',
   },
 ]
 
@@ -100,7 +105,7 @@ export default function ProductSection() {
         {products.map((product) => (
           /* reveal-item: clip-path 애니메이션 대상 (overflow:hidden인 productItem 바깥) */
           <div key={product.id} className={`${styles.productItemWrap} reveal-item`}>
-            <div className={styles.productItem} data-cursor-hover>
+            <Link href={`/shop/${product.slug}`} className={styles.productItem} data-cursor-hover aria-label={`${product.name} 상세 보기`}>
               <div className={styles.productItemBg} aria-hidden="true" />
               <img
                 src={product.image}
@@ -111,7 +116,7 @@ export default function ProductSection() {
                 <h3 className={styles.productName}>{product.name}</h3>
                 <p className={styles.productPrice}>{product.price}</p>
               </div>
-            </div>
+            </Link>
           </div>
         ))}
       </div>

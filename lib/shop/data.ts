@@ -33,35 +33,39 @@ export async function ensureDefaultShopCatalog() {
 
   const { data: categories } = await supabaseAdmin.from('categories').select('id, slug')
   const categoryMap = new Map((categories ?? []).map((category) => [category.slug, category.id]))
+
+  // 이미 존재하는 slug 목록을 가져와 누락된 상품만 삽입
+  const { data: existingProducts } = await supabaseAdmin.from('products').select('slug')
+  const existingSlugs = new Set((existingProducts ?? []).map((p) => p.slug))
+
   const { count: productCount } = await supabaseAdmin.from('products').select('*', { count: 'exact', head: true })
 
-  if ((productCount ?? 0) === 0) {
-    const seedRows = seedShopProducts
-      .map((product, index) => {
-        const categoryId = categoryMap.get(product.categorySlug)
-        if (!categoryId) {
-          return null
-        }
+  const seedRows = seedShopProducts
+    .filter((product) => !existingSlugs.has(product.slug))
+    .map((product, index) => {
+      const categoryId = categoryMap.get(product.categorySlug)
+      if (!categoryId) {
+        return null
+      }
 
-        return {
-          category_id: categoryId,
-          sku: `SHOP-${String(index + 1).padStart(4, '0')}`,
-          name: product.name,
-          slug: product.slug,
-          short_description: product.size ?? null,
-          description: product.description,
-          price: product.price,
-          stock: 30,
-          status: 'active',
-          is_active: true,
-          thumbnail_url: product.image,
-        }
-      })
-      .filter(Boolean)
+      return {
+        category_id: categoryId,
+        sku: `SHOP-${String((productCount ?? 0) + index + 1).padStart(4, '0')}`,
+        name: product.name,
+        slug: product.slug,
+        short_description: product.size ?? null,
+        description: product.description,
+        price: product.price,
+        stock: 30,
+        status: 'active',
+        is_active: true,
+        thumbnail_url: product.image,
+      }
+    })
+    .filter(Boolean)
 
-    if (seedRows.length > 0) {
-      await supabaseAdmin.from('products').insert(seedRows)
-    }
+  if (seedRows.length > 0) {
+    await supabaseAdmin.from('products').insert(seedRows)
   }
 }
 

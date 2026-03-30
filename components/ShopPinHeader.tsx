@@ -32,7 +32,7 @@ export default function ShopPinHeader({ onPurchase }: ShopPinHeaderProps) {
           <Link href="/offline-store">offline-store</Link>
         </nav>
 
-        <div className={styles.headerLogo}>
+        <Link href="/" className={styles.headerLogo} aria-label="Go to the BYREDO home page">
           <img
             src="/assets/main/etc/logo.svg"
             alt="BYREDO"
@@ -40,7 +40,7 @@ export default function ShopPinHeader({ onPurchase }: ShopPinHeaderProps) {
             height={21}
             style={{ display: 'block', width: '100%', height: 'auto' }}
           />
-        </div>
+        </Link>
 
         <div className={styles.headerRight}>
           <button className={styles.purchaseBtn} type="button" onClick={onPurchase}>
